@@ -20,6 +20,7 @@ body {
 .left-section {
     width: 100px;
     padding-top: 5px;
+    cursor: pointer;
 }
 .left-section img {
     width: 100%;
@@ -28,14 +29,31 @@ body {
     overflow-clip-margin: content-box;
     overflow: clip;
 }
+.amazon-mobile-logo {
+    display: none;
+}
+@media (max-width: 600px){
+    .left-section>.amazon-mobile-logo{
+        display: block;
+        width: 40px;
+    }
+    .left-section {
+        width:  50px;
+    }
+    .left-section img {
+        display: none;
+    }
+}
 .middle-section {
     display: flex;
+    flex: 1;
     align-items: center;
-    width: 800px;
+    max-width: 880px;
+    margin-left: 15px;
 }
 .middle-section input {
     font-size: 16px;
-    width: 720px;
+    flex: 1;
     padding: 12px 15px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -43,6 +61,7 @@ body {
     border-bottom-right-radius: 0;
     border: none;
     outline-color: rgb(254, 189, 105);
+    cursor: pointer;
 }
 .search-btn {
     background: rgb(254, 189, 105);
@@ -58,10 +77,33 @@ body {
     height: 25px;
 }
 .right-section {
+    width: 180px;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.big-view{
+
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 180px;
+    cursor: pointer;
+}
+@media (max-width:600px){
+    .right-section {
+        width: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .hamburger{
+        display: block;
+        margin-left: 20px;
+    }
+    .big-view{
+        display: none;
+    }
 }
 .return-order-container {
 
@@ -81,8 +123,7 @@ body {
     position: relative;
 }
 .cart-count-container img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
 }
 .cart-text {
     padding-top: 12px;
@@ -90,7 +131,7 @@ body {
 }
 .cart-count {
     position: absolute;
-    left: 19px;
+    left: 24px;
     bottom: 12px;
     color: rgb(254, 189, 105);
 }
@@ -100,6 +141,25 @@ body {
     grid-template-columns: repeat(5, 1fr);
     border-right: 1px solid gray;
     border-bottom: 1px solid gray;
+}
+@media (max-width: 801px) and (min-width: 1001px){
+    .body-wrap {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 1000px) and (min-width: 801px){
+    .body-wrap {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 800px) and (min-width: 600px){
+    .body-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}@media (max-width: 600px) {
+    .body-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 .card-wrap {
     padding: 25px;
@@ -156,7 +216,7 @@ padding: 3px 5px;
 .sucessesfully-added {
     color: green;
     margin-bottom: -7px;
-    display: none;
+    /* display: none; */
 }
 .add-cart-btn {
     width: 100%;
@@ -167,3 +227,16 @@ padding: 3px 5px;
     background: rgb(255, 216, 20);
     box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
+.added-to-cart {
+    color: rgb(6, 125, 98);
+    font-size: 16px;
+  
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  
+    /* At first, the "Added to cart" message will
+       be invisible. Use JavaScript to change the
+       opacity and make it visible. */
+    opacity: 0;
+  }
